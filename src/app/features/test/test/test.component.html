@@ -1,0 +1,75 @@
+@if (quiz) {
+  <section class="test">
+    <div class="container">
+      <div id="pre-title" class="test__pre-title">{{ quiz.name }}</div>
+      <div id="progress-bar" class="test__progress-bar">
+        @for (item of this.quiz.questions; track item.id; let i = $index) {
+          <div class="test__progress-bar-item active"
+               [class.active]="currentQuestionIndex === (i + 1)"
+               [class.complete]="currentQuestionIndex > (i + 1)"
+          >
+            <div class="test__progress-bar-item-circle"></div>
+            <div class="test__progress-bar-item-text">Вопрос {{i + 1}}</div>
+          </div>
+        }
+      </div>
+      <div class="test-question">
+        <div id="test__question-title" class="test__question-title">
+          <span>Вопрос {{ currentQuestionIndex }}:</span> {{ activeQuestion.question }}
+        </div>
+        <div id="test__question-options" class="test__question-options">
+          @for (answer of activeQuestion.answers; track answer.id) {
+            <div class="test__question-option">
+              <input
+                class="option-answer"
+                id="answer-{{answer.id}}"
+                type="radio"
+                name="answer"
+                [value]="answer.id"
+                [checked]="chosenAnswerId() === answer.id"
+                (change)="chosenAnswerId.set(answer.id)"
+              >
+              <label for="answer-{{answer.id}}">{{ answer.answer }}</label>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="test__actions">
+        <div class="test-previous-action">
+          <button
+            id="prev"
+            class="button button-transparent"
+            type="button"
+            [disabled]="currentQuestionIndex === 1"
+            (click)="move(actionTestType.PREV)"
+          >Назад
+          </button>
+        </div>
+        <div class="test__time">
+          <div class="test__time-title">Осталось времени:</div>
+          <div class="test__time-timer">
+            <img src="assets/images/time.svg" alt="timer">
+            <span class="test__time-clock">{{ timerSeconds }}</span>
+          </div>
+        </div>
+        <div class="test-next-action">
+          <button
+            id="next"
+            class="button button-transparent"
+            type="button"
+            [disabled]="!chosenAnswerId()"
+            (click)="move(actionTestType.NEXT)"
+          >
+            {{ currentQuestionIndex === quiz.questions.length ? 'Завершить' : "Дальше" }}
+          </button>
+        </div>
+      </div>
+      <div class="test__pass-question">
+        <a href="javascript:void(0)" id="pass" (click)="move(actionTestType.PASS)">
+          Пропустить вопрос
+          <img src="./assets/images/arrow-small.svg" alt="small arrow"></a>
+      </div>
+    </div>
+  </section>
+
+}

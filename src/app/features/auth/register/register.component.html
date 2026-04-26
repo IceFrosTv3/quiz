@@ -1,0 +1,75 @@
+<section class="form" [formGroup]="signUpForm">
+  <div class="container">
+    <div class="form__content">
+      <h1 class="form__title common-title">Регистрация</h1>
+      <div class="form__details">
+        <div class="form__group">
+          <input
+            type="text"
+            class="form__input"
+            id="name"
+            name="name"
+            placeholder=""
+            formControlName="name"
+          />
+          <label for="name" class="form__label">Имя</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            class="form__input"
+            id="last-name"
+            name="lastname"
+            placeholder=""
+            formControlName="lastName"
+          />
+          <label for="last-name" class="form__label">Фамилия</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            class="form__input"
+            id="email"
+            name="email"
+            placeholder=""
+            formControlName="email"
+          />
+          <label for="email" class="form__label">Электронная почта</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="password"
+            class="form__input"
+            id="password"
+            name="password"
+            placeholder=""
+            formControlName="password"
+          />
+          <label for="password" class="form__label">Пароль</label>
+        </div>
+        <div class="form__agree">
+          <input type="checkbox" id="agree" name="agree" formControlName="agree"/>
+          <label for="agree">
+            Я ознакомлен <a href="#">с правилами сайта</a>
+          </label>
+        </div>
+      </div>
+      <div class="form__button">
+        <button id="process" class="button" [disabled]="signUpForm.invalid" (click)="signUp()">
+          Перейти к выбору теста
+        </button>
+      </div>
+      <div class="form__link">Уже зарегистрированы? <a routerLink="/login">Войти</a></div>
+    </div>
+    <div class="form__image">
+      <img
+        class=""
+        src="./assets/images/info-image.svg"
+        alt="Person"
+        width="523px"
+        height="547px"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

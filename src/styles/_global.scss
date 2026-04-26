@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Museo Sans Cyrl", sans-serif;
+  color: #333;
+}
+
+a, input, button {
+  color: #6933DC;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button {
+  padding: 14px 35px;
+  border-radius: 6px;
+  background: #6933DC;
+  color: #FFF;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  user-select: none;
+
+  &:hover {
+    background: #512cab;
+  }
+
+  &:disabled {
+    background-color: #e2dfe7;
+    cursor: not-allowed;
+  }
+
+  &a {
+    display: inline-block;
+  }
+
+  &-transparent {
+    background-color: transparent;
+    color: #6933DC;
+    border: 1px solid #6933DC;
+
+    &:hover {
+      background: #6933DC;
+      color: white;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: #e2dfe7;
+      border: 1px solid #e2dfe7;
+    }
+  }
+}
+
+.big__title {
+  font-family: "Museo Sans Cyrl Bold", sans-serif;
+  font-size: 54px;
+  font-style: normal;
+  line-height: 65px;
+
+  & span {
+    color: #6933DC;
+  }
+}
+
+.common-title {
+  font-family: "Museo Sans Cyrl Bold", sans-serif;
+  font-size: 48px;
+  line-height: 58px;
+
+  & span {
+    color: #6933DC;
+  }
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #6933DC;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: inset 10px 10px #6933DC;
+    transition: .2s ease scale;
+    scale: 0;
+  }
+
+  &:checked::before {
+    scale: 1;
+  }
+}

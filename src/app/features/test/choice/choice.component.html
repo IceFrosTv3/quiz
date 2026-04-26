@@ -1,0 +1,47 @@
+<section class="choice">
+  <div class="container">
+    <div class="choice__content">
+      <h1 class="common-title choice__title">Выберите <span>тему теста</span></h1>
+      <div class="choice__description">
+        Чтобы начать тест, выберите одну из предложенных ниже тем.
+      </div>
+      <div id="choice__options" class="choice__options">
+        @for (quiz of quizzes; track quiz.id) {
+          <div
+            class="choice__option"
+            role="button" tabindex="0"
+            (click)="chooseQuiz(quiz.id)"
+            (keydown.enter)="chooseQuiz(quiz.id)"
+          >
+            @if (quiz.result) {
+              <a
+                class="choice__option-result"
+                routerLink="/result" [queryParams]="{id: quiz.id}"
+                (click)="$event.stopPropagation()"
+              >
+                <div>Результат</div>
+                <div>{{ quiz.result }}</div>
+              </a>
+            }
+            <div class="choice__option-text">{{ quiz.name }}</div>
+            <div class="choice__option-arrow">
+              <img
+                src="" alt=""
+                loading="lazy"
+              />
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="choice__image">
+      <img
+        ngSrc="./assets/images/choice-image.svg"
+        alt="Person"
+        width="509"
+        height="370"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

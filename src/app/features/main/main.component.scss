@@ -1,0 +1,23 @@
+.main {
+  padding-block: clamp(50px, 8vw, 200px);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    max-width: 588px;
+  }
+
+  &__description {
+    margin-top: 40px;
+    font-size: 20px;
+    max-width: 486px;
+  }
+
+  &__button {
+    margin-top: 60px;
+  }
+}

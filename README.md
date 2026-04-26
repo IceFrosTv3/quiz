@@ -1,27 +1,60 @@
-# QuizAngular
+# Quiz App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+An interactive quiz platform rebuilt as a Single Page Application using Angular 18. The application provides user authentication through JWT tokens, quiz browsing and selection, timed multiple-choice tests with navigation, results viewing with detailed answer breakdown, and automatic token refresh via HTTP interceptor.
 
-## Development server
+## Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 18 (standalone components)
+- TypeScript (strict mode)
+- SCSS
+- RxJS
+- Angular Material
+- Angular ESLint
 
-## Code scaffolding
+## Project Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+src/
+├── app/
+│   ├── core/              # Auth service, interceptor, guard
+│   ├── features/          # Pages: main, auth, test, result
+│   └── shared/            # Directives, types, services, layout
+├── assets/                # Images, fonts
+├── environments/          # Dev / prod environment config
+└── styles/                # Global SCSS styles
+```
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Node.js 18+ and a running backend API at `localhost:3000` are required.
 
-## Running unit tests
+```bash
+npm install
+ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The development server will be available at `http://localhost:4200`.
 
-## Running end-to-end tests
+For production build:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng build
+```
 
-## Further help
+## Linting
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+ng lint
+```
+
+## Application Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home page |
+| `/signup` | Registration |
+| `/login` | Login |
+| `/choice` | Quiz selection |
+| `/test/:id` | Quiz passing |
+| `/result` | Results |
+| `/result-details` | Detailed results with correct answers |
