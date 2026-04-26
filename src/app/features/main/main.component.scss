@@ -1,5 +1,9 @@
+:host {
+  flex: 1;
+}
+
 .main {
-  padding-block: clamp(50px, 8vw, 200px);
+  padding-block: clamp(50px, 6vw, 100px);
 
   .container {
     display: flex;
